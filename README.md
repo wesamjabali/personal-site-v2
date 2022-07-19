@@ -1,6 +1,7 @@
-# Nuxt 3 Minimal Starter
+# Personal Site v2
+## Wesam Jabali
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+Made with [Nuxt 3](https://v3.nuxtjs.org).
 
 ## Setup
 
