@@ -29,7 +29,7 @@ onBeforeUnmount(() => removeNoScroll())
 
 <style lang="scss">
 .base-modal--overlay {
-    position: fixed;
+    position: absolute;
     display: flex;
     backdrop-filter: blur(2px);
     background-color: rgba(255, 255, 255, 0.2);
@@ -59,13 +59,13 @@ onBeforeUnmount(() => removeNoScroll())
     @include for-tablet-down {
         position: absolute;
         bottom: 0;
-        width: 100%;
+        min-width: 100%;
         max-width: 100%;
+        max-height: 65vh;
         border-style: solid none none none;
         border-radius: 0;
         align-self: center;
         margin: 0;
-        max-height: 95vh;
     }
 
     &--header {
