@@ -9,7 +9,7 @@
     </BaseModal>
     <div>
       <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
-      {{ content }}
+      <p>{{ content }}</p>
       <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
     </div>
   </div>

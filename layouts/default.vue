@@ -17,7 +17,6 @@
   display: flex;
   justify-content: space-between;
 
-
   &--main-content {
     max-width: 45rem;
     margin: auto;
