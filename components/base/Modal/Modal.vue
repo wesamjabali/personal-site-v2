@@ -45,17 +45,16 @@ onBeforeUnmount(() => removeNoScroll())
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    min-width: 40%;
-    max-width: 65%;
-    max-height: 50%;
+    min-width: 30rem;
+    max-width: 35rem;
+    max-height: 40rem;
     margin: auto;
     z-index: 1001;
 
-    border: 0.05rem solid white;
+    border: 0.5px solid white;
     border-radius: 0.5rem;
     padding: $space * 3;
     background-color: $secondary;
-
 
     @include for-tablet-down {
         position: absolute;

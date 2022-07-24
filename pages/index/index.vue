@@ -7,7 +7,7 @@
         <BaseButton @click="getStarted()" type="primary">✅ Get started</BaseButton>
       </template>
     </BaseModal>
-    <div class="hello">
+    <div>
       <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
       {{ content }}
       <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
@@ -29,10 +29,6 @@ const content = "This is fake content! ".repeat(500)
 </script>
 
 <style lang="scss">
-.hello {
-  font-size: 20px;
-}
-
 @include for-tablet-only {
   .tablet {
     display: none;
