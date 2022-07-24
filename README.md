@@ -1,7 +1,9 @@
 # Personal Site v2
 ## Wesam Jabali
 
-Made with [Nuxt 3](https://v3.nuxtjs.org).
+> Made with [Nuxt 3](https://v3.nuxtjs.org).
+> Deployed with [Netlify](https://netlify.com)
+> Deployment found [here](https://62dcd02e95186a1ac8e88ac7--luxury-selkie-00d9f6.netlify.app/)
 
 ## Setup
 
