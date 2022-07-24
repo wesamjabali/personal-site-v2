@@ -1,6 +1,6 @@
 <template>
-    <Transition appear name="base-modal">
-        <div class="base-modal--overlay" @click="$emit('overlay-click'); ">
+    <Transition name="base-modal">
+        <div v-if="visible" class="base-modal--overlay" @click="$emit('overlay-click'); ">
             <div class="base-modal" @click="(e) => e.stopPropagation()">
                 <h4 class="base-modal--header">
                     {{ header }}
@@ -17,13 +17,12 @@
 </template>
 
 <script setup lang="ts">
-defineProps({ header: String })
+defineProps({ header: String, visible: Boolean })
 defineEmits(['overlay-click'])
-
 const applyNoScroll = () => document.body.classList.add('no-scroll')
 const removeNoScroll = () => document.body.classList.remove('no-scroll')
 
-onBeforeMount(() => applyNoScroll())
+onMounted(() => applyNoScroll())
 onBeforeUnmount(() => removeNoScroll())
 </script>
 

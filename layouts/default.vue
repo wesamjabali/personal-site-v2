@@ -8,7 +8,6 @@
       <slot />
     </div>
     <div class="default-layout--right-sidebar"></div>
-
   </div>
 </template>
 
@@ -22,11 +21,11 @@
     margin: auto;
     padding-left: $sidebar-width + 1rem;
     padding-right: $sidebar-width + 1rem;
-    padding-top: 3rem;
 
     @include for-tablet-down {
-      margin: 3rem;
-      padding: 0
+      padding-left: 2rem;
+      padding-right: 2rem;
+
     }
   }
 
@@ -48,7 +47,5 @@
     border-style: none solid none none;
     left: 0;
   }
-
-
 }
 </style>
