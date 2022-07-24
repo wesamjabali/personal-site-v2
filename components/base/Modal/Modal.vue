@@ -100,20 +100,18 @@ onBeforeUnmount(() => removeNoScroll())
 
     &-enter-from,
     &-leave-to {
-        backdrop-filter: blur(2px);
-        background-color: rgba(255, 255, 255, 0.0);
-
         @include for-tablet-down {
+            backdrop-filter: blur(2px);
+            background-color: rgba(255, 255, 255, 0.0);
             bottom: -95vh;
         }
     }
 
     &-enter-to,
     &-leave-from {
-        backdrop-filter: blur(2px);
-        background-color: rgba(255, 255, 255, 0.2);
-
         @include for-tablet-down {
+            backdrop-filter: blur(2px);
+            background-color: rgba(255, 255, 255, 0.2);
             bottom: 0;
         }
     }
