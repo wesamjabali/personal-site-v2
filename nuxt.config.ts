@@ -14,8 +14,12 @@ export default defineNuxtConfig({
   },
   components: true,
   css: ["~/assets/css/main.scss"],
-
-  buildModules: ['@pinia/nuxt'],
+  modules: [
+    '@nuxt/content'
+  ],
+  content: {
+    // https://content.nuxtjs.org/api/configuration
+  },
   vite: {
     css: {
       preprocessorOptions: {
