@@ -84,6 +84,26 @@ defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }
         }
     }
 
+    &__right {
+        border-style: none none solid none;
+        right: 0;
+
+        &-enter-from,
+        &-leave-to {
+            right: -$sidebar-width;
+        }
+
+        &-enter-to,
+        &-leave-from {
+            right: 0;
+        }
+
+        &-enter-active,
+        &-leave-active {
+            transition: right 0.1s ease;
+        }
+    }
+
     &--overlay {
         position: fixed;
         backdrop-filter: blur(2px);

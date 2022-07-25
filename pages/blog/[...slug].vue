@@ -1,6 +1,6 @@
 
 <template>
     <div>
-        <ContentDoc :path="`/${$route.params.slug[0]}`" />
+        <ContentDoc class="content" :path="`/${$route.params.slug[0]}`" />
     </div>
 </template>

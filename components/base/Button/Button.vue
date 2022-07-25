@@ -50,6 +50,7 @@ const props = defineProps({
     }
   }
 
+  // TODO: Add a way to change position
   &__floating-circle {
     padding: $space;
     backdrop-filter: blur(2px);

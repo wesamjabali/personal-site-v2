@@ -11,7 +11,7 @@ This is some placeholder stuff. Don't expect a full blog post here, I just want 
 <br />
 
 Here's some code: 
-```Javascript
+```js
 this.is some code.
 console.log('nothing.')
 // This is a comment
