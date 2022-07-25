@@ -1,35 +1,87 @@
 <template>
     <span>
-        <div class="base-sidebar--overlay" @click="$emit('overlay-click')" />
-        <div class="base-sidebar base-sidebar__left" @click="e => e.stopPropagation()">
-            <BaseLink type="navigation" v-for="anchor, index in anchors" :key="index" :href="`#${anchor}`">{{ anchor
-            }}</BaseLink>
-        </div>
+        <Transition name="base-sidebar--overlay">
+            <div v-if="visible" class="base-sidebar--overlay" />
+        </Transition>
+        <Transition :name="`base-sidebar__${$props.side}`">
+            <div v-if="$props.visible" :class="`base-sidebar base-sidebar__${$props.side}`"
+                @click="e => e.stopPropagation()">
+                <div class="base-sidebar--navigation-container">
+                    <div class="base-sidebar--navigation-logo" @click="$emit('click')">
+                        ✅
+                    </div>
+                    <div class="base-sidebar--navigation-anchors">
+                        <BaseLink type="navigation" v-for="anchor, index in anchors" :key="index" :href="`#${anchor}`"
+                            @click="$emit('click')">
+                            {{
+                                    anchor
+                            }}
+                        </BaseLink>
+                    </div>
+                </div>
+            </div>
+        </Transition>
     </span>
 </template>
 
 <script setup lang="ts">
-defineProps({ anchors: Array<String> })
-defineEmits(['overlay-click'])
+defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }>()
 </script>
 
 <style lang="scss">
 .base-sidebar {
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: $space;
     box-sizing: border-box;
-    min-width: $sidebar-width;
-    max-width: $sidebar-width;
-    padding-left: $space;
-    padding-right: $space;
+    width: $sidebar-width;
     height: 100vh;
-    border-color: lighten($color: $secondary, $amount: 2);
     background-color: $secondary;
 
-    &>* {
-        background-color: lighten($color: $secondary, $amount: 4);
+    border-color: lighten($color: $secondary, $amount: 2);
+
+    &--navigation-container {
+        background-color: $secondary;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        box-sizing: border-box;
+    }
+
+    &--navigation-anchors {
+        background-color: $secondary;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    &--navigation-logo {
+        display: flex;
+        background-color: $secondary;
+        font-size: 6rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    &__left {
+        border-style: none solid none none;
+        left: 0;
+
+        &-enter-from,
+        &-leave-to {
+            left: -$sidebar-width;
+        }
+
+        &-enter-to,
+        &-leave-from {
+            left: 0;
+        }
+
+        &-enter-active,
+        &-leave-active {
+            transition: left 0.1s ease;
+        }
     }
 
     &--overlay {
@@ -42,14 +94,25 @@ defineEmits(['overlay-click'])
         background-color: transparent;
         display: none;
 
+        &-enter-from,
+        &-leave-to {
+            opacity: 0;
+        }
+
+        &-enter-to,
+        &-leave-from {
+            opacity: 1;
+        }
+
+        &-enter-active,
+        &-leave-active {
+            transition: opacity 0.1s ease;
+        }
+
         @include for-tablet-down {
             display: block;
         }
     }
 
-    &__left {
-        border-style: none solid none none;
-        left: 0;
-    }
 }
 </style>

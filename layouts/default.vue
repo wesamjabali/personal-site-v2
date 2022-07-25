@@ -1,6 +1,6 @@
 <template>
   <div class="default-layout">
-    <BaseSidebar v-if="showSidebar" :anchors="anchors" @overlay-click="toggleSidebar()"></BaseSidebar>
+    <BaseSidebar side="left" :visible="showSidebar" :anchors="anchors" @click="toggleSidebar()"></BaseSidebar>
     <BaseButton class="desktop-hide" @click="toggleSidebar()" type="primary" :floating-circle="true">✅</BaseButton>
     <div class="default-layout--main-content">
       <slot />
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const anchors = ['anchor1', 'anchor2', 'this is a very long anchor!', 'sh']
+const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
 const showSidebar = ref(false)
 
 const toggleSidebar = () => {
@@ -24,10 +24,11 @@ const toggleSidebar = () => {
 
   &--main-content {
     width: 100%;
-    max-width: 45rem;
+    max-width: $content-max-width;
     margin: auto;
     padding-left: $sidebar-width + 1rem;
-    padding-right: $sidebar-width + 1rem;
+    padding-right: $sidebar-width;
+    // TODO: Get the spacing right
 
     @include for-tablet-down {
       padding-top: $space * 2;
