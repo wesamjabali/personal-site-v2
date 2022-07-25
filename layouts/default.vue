@@ -30,8 +30,9 @@ const toggleSidebar = () => {
     padding-right: $sidebar-width + 1rem;
 
     @include for-tablet-down {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-top: $space * 2;
+      padding-left: $space * 4;
+      padding-right: $space * 4;
     }
   }
 }

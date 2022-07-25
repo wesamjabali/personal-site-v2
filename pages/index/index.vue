@@ -8,7 +8,7 @@
       </template>
     </BaseModal>
     <div>
-      <ContentDoc class="index-content-doc" path="/test" />
+      <ContentDoc class="content" path="/test" />
     </div>
     <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
 
@@ -28,8 +28,4 @@ const getStarted = () => {
 const content = "Lorem Ipsum ".repeat(5000)
 </script>
 
-<style lang="scss">
-.index-content-doc {
-  overflow-wrap: break-word;
-}
-</style>
+

@@ -17,7 +17,83 @@ button {
   overflow-y: hidden;
 }
 
-h1, h2, h3, h4, h5, p {
+h1, h2, h3, h4, h5, h6, p {
   all: unset;
+  font-weight: 400;
   display: block;
+}
+
+@mixin header {
+    &::before {
+      content: '# '
+    }
+    font-weight: 500;
+    
+    &>a {
+      color: $text-color;
+      text-decoration: none;
+      &:visited {
+        color: $text-color;
+      }
+    }
+}
+
+.content {
+  &>a{
+    color: $text-color;
+
+    &:visited {
+      color: red;
+    }
+  }
+
+  &>pre {
+    background-color: black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  &>p {
+    font-size: 1.2rem;
+
+    &>a{
+      color: $text-color;
+  
+      &:visited {
+        color: $text-color;
+      }
+    }
+  }
+
+  &>h1 {
+    @include header();
+    font-size: 3rem;
+  }
+
+  &>h2 {
+    @include header();
+    font-size: 2rem;
+  }
+
+  &>h3 {
+    @include header();
+    font-size: 1.5rem;
+    
+  }
+
+  &>h4 {
+    @include header();
+    font-size: 1.2rem;
+  }
+
+  &>h5 {
+    @include header();
+    font-size: 1.2rem;
+  }
+
+  &>h6 {
+    @include header();
+    font-size: 1.2rem;
+  }
 }
