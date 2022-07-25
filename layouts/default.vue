@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
-const showSidebar = ref(false)
+const showSidebar = ref(true)
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
@@ -28,7 +28,13 @@ const toggleSidebar = () => {
     margin: auto;
     padding-left: $sidebar-width + 1rem;
     padding-right: $sidebar-width;
+    padding-top: $space * 4;
     // TODO: Get the spacing right
+
+    @include for-desktop-only {
+      padding-right: $space * 8;
+
+    }
 
     @include for-tablet-down {
       padding-top: $space * 2;
