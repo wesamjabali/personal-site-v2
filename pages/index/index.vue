@@ -10,8 +10,19 @@
 
     <div>
       <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
-      <p>{{ content }}</p>
+      <!-- <p>{{ content }}</p> -->
       <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
+    </div>
+    <div>
+      <ContentDoc class="index-content-doc" path="/test" />
+    </div>
+
+    <div id="anchor2">
+      ANCHOR 2
+    </div>
+
+    <div>
+      <!-- {{ content }} -->
     </div>
   </div>
 </template>
@@ -26,13 +37,11 @@ const getStarted = () => {
   alert("Ready!")
 }
 
-const content = "Lorem Ipsum ".repeat(20)
+const content = "Lorem Ipsum ".repeat(5000)
 </script>
 
 <style lang="scss">
-@include for-tablet-only {
-  .tablet {
-    display: none;
-  }
+.index-content-doc {
+  overflow-wrap: break-word;
 }
 </style>
