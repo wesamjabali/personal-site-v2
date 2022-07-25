@@ -20,7 +20,6 @@ export default defineNuxtConfig({
   ],
   content: {
     // https://content.nuxtjs.org/api/configuration
-    markdown: { tags: { a: 'BaseLink' } },
     highlight: { theme: 'dracula' }
   },
   vite: {
