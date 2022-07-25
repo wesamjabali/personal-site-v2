@@ -22,8 +22,7 @@ defineEmits(['overlay-click'])
 const applyNoScroll = () => document.body.classList.add('no-scroll')
 const removeNoScroll = () => document.body.classList.remove('no-scroll')
 
-// TODO: Correct watcher
-watch(props, () => {
+watch(() => props.visible, () => {
     if (props.visible) {
         applyNoScroll()
     } else {

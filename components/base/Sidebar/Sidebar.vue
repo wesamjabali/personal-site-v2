@@ -34,7 +34,8 @@ defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }
     padding: $space;
     box-sizing: border-box;
     width: $sidebar-width;
-    height: 100vh;
+    top: 0;
+    bottom: 0;
     background-color: $secondary;
 
     border-color: lighten($color: $secondary, $amount: 2);
