@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content'
   ],
+  plugins: ['~/plugins/mq.plugin.ts'],
   content: {
     // https://content.nuxtjs.org/api/configuration
     highlight: { theme: 'dracula' }

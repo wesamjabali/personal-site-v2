@@ -1,6 +1,6 @@
 <template>
   <div class="default-layout">
-    <BaseSidebar side="left" :visible="showSidebar" :anchors="anchors" @click="toggleSidebar()"></BaseSidebar>
+    <BaseSidebar side="left" :visible="showSidebar || isDesktopUp" :anchors="anchors" @click="toggleSidebar()" />
     <BaseButton class="desktop-hide" @click="toggleSidebar()" type="primary" :floating-circle="true">✅</BaseButton>
     <div class="default-layout--main-content">
       <slot />
@@ -9,9 +9,12 @@
 </template>
 
 <script setup lang="ts">
-const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
-const showSidebar = ref(false)
+import { useMq } from 'vue3-mq'
 
+const mq = useMq()
+const isDesktopUp = computed(() => !mq.xs && !mq.s)
+const showSidebar = ref(false)
+const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
 }
