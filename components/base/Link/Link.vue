@@ -17,18 +17,18 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
     }
 
     &__navigation {
-        padding: 0.5rem;
+        font-weight: 600;
+        padding: $space;
         text-decoration: none;
-        background-color: rgba(255, 255, 255, 0.1);
         border-radius: 0.5rem;
-        margin-top: 1rem;
+        margin-top: $space * 1.5;
         box-sizing: border-box;
         width: 100%;
         text-align: center;
 
         &:hover {
-            background-color: white;
-            color: black;
+            background-color: lighten($color: $secondary, $amount: 20);
+            color: $text-color;
         }
 
         &::before {
