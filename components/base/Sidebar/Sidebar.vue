@@ -1,10 +1,11 @@
 <template>
-    <div class="base-sidebar--overlay" @click="$emit('overlay-click')">
+    <span>
+        <div class="base-sidebar--overlay" @click="$emit('overlay-click')" />
         <div class="base-sidebar base-sidebar__left" @click="e => e.stopPropagation()">
             <BaseLink type="navigation" v-for="anchor, index in anchors" :key="index" :href="`#${anchor}`">{{ anchor
             }}</BaseLink>
         </div>
-    </div>
+    </span>
 </template>
 
 <script setup lang="ts">
@@ -13,7 +14,7 @@ defineEmits(['overlay-click'])
 </script>
 
 <style lang="scss">
-@mixin sidebar {
+.base-sidebar {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -24,10 +25,13 @@ defineEmits(['overlay-click'])
     padding-left: $space;
     padding-right: $space;
     height: 100vh;
-    border-color: lighten($color: $background-color, $amount: 2);
-}
+    border-color: lighten($color: $secondary, $amount: 2);
+    background-color: $secondary;
 
-.base-sidebar {
+    &>* {
+        background-color: lighten($color: $secondary, $amount: 4);
+    }
+
     &--overlay {
         position: fixed;
         backdrop-filter: blur(2px);
@@ -36,10 +40,14 @@ defineEmits(['overlay-click'])
         bottom: 0;
         right: 0;
         background-color: transparent;
+        display: none;
+
+        @include for-tablet-down {
+            display: block;
+        }
     }
 
     &__left {
-        @include sidebar;
         border-style: none solid none none;
         left: 0;
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="default-layout">
     <BaseSidebar v-if="showSidebar" :anchors="anchors" @overlay-click="toggleSidebar()"></BaseSidebar>
-    <BaseButton @click="toggleSidebar()" type="primary" :floating-circle="true">✅</BaseButton>
+    <BaseButton class="desktop-hide" @click="toggleSidebar()" type="primary" :floating-circle="true">✅</BaseButton>
     <div class="default-layout--main-content">
       <slot />
     </div>
@@ -9,10 +9,12 @@
 </template>
 
 <script setup lang="ts">
-const anchors = ['anchor1', 'anchor2', 'this is a very long anchor!', 'sh', 'anchor1', 'anchor2', 'this is a very long anchor!', 'sh', 'anchor1', 'anchor2', 'this is a very long anchor!', 'sh', 'anchor1', 'anchor2', 'this is a very long anchor!', 'sh', 'anchor1', 'anchor2', 'this is a very long anchor!', 'sh', 'anchor1', 'anchor2', 'this is a very long anchor!', 'sh']
-
+const anchors = ['anchor1', 'anchor2', 'this is a very long anchor!', 'sh']
 const showSidebar = ref(false)
-const toggleSidebar = () => showSidebar.value = !showSidebar.value
+
+const toggleSidebar = () => {
+  showSidebar.value = !showSidebar.value;
+}
 </script>
 
 <style lang="scss">
@@ -31,6 +33,12 @@ const toggleSidebar = () => showSidebar.value = !showSidebar.value
       padding-left: 2rem;
       padding-right: 2rem;
     }
+  }
+}
+
+.desktop-hide {
+  @include for-desktop-up {
+    display: none;
   }
 }
 </style>

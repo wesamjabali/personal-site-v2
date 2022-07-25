@@ -17,7 +17,7 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
     }
 
     &__navigation {
-        padding: 1rem;
+        padding: 0.5rem;
         text-decoration: none;
         background-color: rgba(255, 255, 255, 0.1);
         border-radius: 0.5rem;

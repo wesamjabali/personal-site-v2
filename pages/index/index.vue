@@ -7,23 +7,11 @@
         <BaseButton @click="getStarted()" type="primary">✅ Get started</BaseButton>
       </template>
     </BaseModal>
-
-    <div>
-      <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
-      <!-- <p>{{ content }}</p> -->
-      <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
-    </div>
     <div>
       <ContentDoc class="index-content-doc" path="/test" />
     </div>
+    <BaseButton type="primary" @click="toggleModal()">Modal</BaseButton>
 
-    <div id="anchor2">
-      ANCHOR 2
-    </div>
-
-    <div>
-      <!-- {{ content }} -->
-    </div>
   </div>
 </template>
 
