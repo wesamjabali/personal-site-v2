@@ -17,13 +17,19 @@
 </template>
 
 <script setup lang="ts">
-defineProps({ header: String, visible: Boolean })
+const props = defineProps<{ header: String, visible: Boolean }>()
 defineEmits(['overlay-click'])
 const applyNoScroll = () => document.body.classList.add('no-scroll')
 const removeNoScroll = () => document.body.classList.remove('no-scroll')
 
-onMounted(() => applyNoScroll())
-onBeforeUnmount(() => removeNoScroll())
+// TODO: Correct watcher
+watch(props, () => {
+    if (props.visible) {
+        applyNoScroll()
+    } else {
+        removeNoScroll()
+    }
+})
 </script>
 
 <style lang="scss">
