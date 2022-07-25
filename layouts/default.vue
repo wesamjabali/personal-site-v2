@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
-const showSidebar = ref(true)
+const showSidebar = ref(false)
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
