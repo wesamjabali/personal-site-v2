@@ -25,6 +25,7 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
         box-sizing: border-box;
         width: 100%;
         text-align: center;
+        display: inline-block;
 
         &:hover {
             background-color: lighten($color: $secondary, $amount: 20);
@@ -33,6 +34,7 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
 
         &::before {
             content: '#️';
+            display: inline-block;
         }
     }
 
