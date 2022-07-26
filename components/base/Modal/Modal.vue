@@ -19,8 +19,7 @@
 <script setup lang="ts">
 const props = defineProps<{ header: String, visible: Boolean }>()
 defineEmits(['overlay-click'])
-const applyNoScroll = () => document.body.classList.add('no-scroll')
-const removeNoScroll = () => document.body.classList.remove('no-scroll')
+const { applyNoScroll, removeNoScroll } = useNoScroll()
 
 watch(() => props.visible, () => {
     if (props.visible) {

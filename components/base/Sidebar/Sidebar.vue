@@ -25,7 +25,22 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }>()
+import { useMq } from 'vue3-mq'
+import { useNoScroll } from '../../../composables/useNoScroll.composable'
+const { applyNoScroll, removeNoScroll } = useNoScroll()
+
+const props = defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }>()
+
+const mq = useMq();
+const isTabletDown = computed(() => mq.xs || mq.s)
+
+watch(() => props.visible, () => {
+    if (props.visible && isTabletDown.value) {
+        applyNoScroll()
+    } else {
+        removeNoScroll()
+    }
+})
 </script>
 
 <style lang="scss">
@@ -45,7 +60,7 @@ defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 100%;
+
 
         box-sizing: border-box;
     }
@@ -55,6 +70,7 @@ defineProps<{ visible: Boolean, side: "left" | "right", anchors: Array<String> }
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        overflow-y: scroll;
     }
 
     &--navigation-logo {
