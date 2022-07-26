@@ -35,6 +35,7 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
         &::before {
             content: '#️';
             display: inline-block;
+            position: relative;
         }
     }
 
