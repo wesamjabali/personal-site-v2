@@ -10,11 +10,14 @@
 
 <script setup lang="ts">
 import { useMq } from 'vue3-mq'
-
+import { useIsMounted } from '../composables/useIsMounted.composable'
+const { isMounted } = useIsMounted()
 const mq = useMq()
-const isDesktopUp = computed(() => !mq.xs && !mq.s)
+
 const showSidebar = ref(false)
+const isDesktopUp = computed(() => isMounted.value && !mq.xs && !mq.s)
 const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
+
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
 }
