@@ -7,12 +7,12 @@
             <div v-if="$props.visible" :class="`base-sidebar base-sidebar__${$props.side}`"
                 @click="e => e.stopPropagation()">
                 <div class="base-sidebar--navigation-container">
-                    <div class="base-sidebar--navigation-logo" @click="$emit('click')">
+                    <div class="base-sidebar--navigation-logo" @click.self="$emit('click')">
                         ✅
                     </div>
                     <div class="base-sidebar--navigation-anchors">
-                        <BaseLink type="navigation" v-for="anchor, index in anchors" :key="index" :href="`#${anchor}`"
-                            @click="$emit('click')">
+                        <BaseLink type="navigation" v-for="anchor, index in anchors" :key="index"
+                            :href="`#${getAnchorLink(anchor.valueOf())}`" @click.self="$emit('click')">
                             {{
                                     anchor
                             }}
@@ -33,6 +33,8 @@ const props = defineProps<{ visible: Boolean, side: "left" | "right", anchors: A
 
 const mq = useMq();
 const isTabletDown = computed(() => mq.xs || mq.s)
+const getAnchorLink = (anchor: string) => anchor.toLocaleLowerCase().replace(/ /g, '-').replace(/[^a-z0-9-]+/g, '')
+
 
 watch(() => props.visible, () => {
     if (props.visible && isTabletDown.value) {
@@ -120,6 +122,7 @@ watch(() => props.visible, () => {
             transition: right 0.1s ease;
         }
     }
+
 
     &--overlay {
         position: fixed;

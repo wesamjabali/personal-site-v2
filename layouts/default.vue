@@ -15,8 +15,12 @@ const { isMounted } = useIsMounted()
 const mq = useMq()
 
 const showSidebar = ref(false)
-const isDesktopUp = computed(() => isMounted.value && !mq.xs && !mq.s)
-const anchors = ['anchor1', 'anchor2', 'this-is-a-very-long-anchor', 'this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor-this-is-a-very-long-anchor', 'sh']
+const isDesktopUp = computed(() => isMounted.value && !['xs', 's'].includes(mq.current))
+const anchors = computed(() => {
+  if (process.client) {
+    return [...document.querySelectorAll('h2').values()].map((header) => header.textContent)
+  }
+})
 
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;

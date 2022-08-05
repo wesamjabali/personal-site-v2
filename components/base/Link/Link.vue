@@ -11,6 +11,7 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
 <style lang="scss">
 .base-link {
     color: $primary;
+    transition: all 300ms;
 
     &:visited {
         color: $primary
@@ -18,14 +19,17 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
 
     &__navigation {
         font-weight: 600;
-        padding: $space;
+        padding-block: $space;
         text-decoration: none;
         border-radius: 0.5rem;
         margin-top: $space * 1.5;
         box-sizing: border-box;
         width: 100%;
         text-align: center;
-        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
 
         &:hover {
             background-color: lighten($color: $secondary, $amount: 20);
