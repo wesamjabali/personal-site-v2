@@ -1,9 +1,16 @@
-$background-color: #333533;
-$primary: #43baa1;
+$space: 0.5rem;
+$content-max-width: 60rem;
+$header-height: 6rem;
+$background-color: rgb(243, 243, 243);
+$secondary-background-color: #787878;
+$primary: #ffffff;
 $secondary: #1b1c1c;
 $error: #871c14;
 $sidebar-width: 10rem;
-$text-color: #FFF;
-$content-max-width: 60rem;
+$text-color: #000;
+$secondary-text-color: rgb(197, 197, 197);
 
-$space: 0.5em;
+
+$header-z-index: 99;
+$sidebar-z-index: 1001;
+$overlay-z-index: 1000;

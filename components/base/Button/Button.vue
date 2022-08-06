@@ -57,7 +57,7 @@ const props = defineProps({
     text-align: center;
     box-sizing: border-box;
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: $secondary;
     backdrop-filter: blur(2px);
     bottom: 5%;
     right: 5%;
@@ -66,6 +66,12 @@ const props = defineProps({
     font-size: 2rem;
     border-style: none;
     border-radius: 100rem;
+
+    z-index: $overlay-z-index +1;
+
+    &:hover {
+      background-color: lighten($color: $secondary, $amount: 30);
+    }
   }
 }
 </style>

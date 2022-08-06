@@ -14,7 +14,7 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
     transition: all 300ms;
 
     &:visited {
-        color: $primary
+        color: $secondary-text-color;
     }
 
     &__navigation {
@@ -27,13 +27,14 @@ const props = defineProps<{ href: string, type: "navigation" | "inline" }>()
         width: 100%;
         text-align: center;
         overflow: hidden;
+        color: $secondary-text-color;
         text-overflow: ellipsis;
 
 
 
         &:hover {
-            background-color: lighten($color: $secondary, $amount: 20);
-            color: $text-color;
+            background-color: lighten($color: $secondary, $amount: 80);
+            color: $secondary;
         }
 
         &::before {

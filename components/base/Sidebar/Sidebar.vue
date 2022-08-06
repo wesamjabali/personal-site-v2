@@ -8,7 +8,7 @@
                 @click="e => e.stopPropagation()">
                 <div class="base-sidebar--navigation-container">
                     <div class="base-sidebar--navigation-logo" @click.self="$emit('click')">
-                        ✅
+                        🚥
                     </div>
                     <div class="base-sidebar--navigation-anchors">
                         <BaseLink type="navigation" v-for="anchor, index in anchors" :key="index"
@@ -51,11 +51,18 @@ watch(() => props.visible, () => {
     padding: $space;
     box-sizing: border-box;
     width: $sidebar-width;
-    top: 0;
+    top: $header-height;
+
+
     bottom: 0;
     background-color: $secondary;
+    z-index: $sidebar-z-index;
 
     border-color: lighten($color: $secondary, $amount: 2);
+
+    @include for-tablet-down {
+        top: 0
+    }
 
     &--navigation-container {
         background-color: $secondary;
@@ -81,6 +88,10 @@ watch(() => props.visible, () => {
         font-size: 6rem;
         width: 100%;
         justify-content: center;
+
+        @include for-desktop-up {
+            display: none;
+        }
     }
 
     &__left {
@@ -133,6 +144,7 @@ watch(() => props.visible, () => {
         right: 0;
         background-color: transparent;
         display: none;
+        z-index: $overlay-z-index;
 
         &-enter-from,
         &-leave-to {

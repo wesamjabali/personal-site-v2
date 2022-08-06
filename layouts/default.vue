@@ -1,5 +1,6 @@
 <template>
   <div class="default-layout">
+    <BaseHeader :navigation-items="getHeaderNavigationItems()"></BaseHeader>
     <BaseSidebar side="left" :visible="showSidebar || isDesktopUp" :anchors="anchors" @click="toggleSidebar()" />
     <BaseButton class="desktop-hide" @click="toggleSidebar()" type="primary" :floating-circle="true">✅</BaseButton>
     <div class="default-layout--main-content">
@@ -25,6 +26,10 @@ const anchors = computed(() => {
 const toggleSidebar = () => {
   showSidebar.value = !showSidebar.value;
 }
+
+const getHeaderNavigationItems = () => {
+  return [{ href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' },]
+}
 </script>
 
 <style lang="scss">
@@ -38,7 +43,7 @@ const toggleSidebar = () => {
     margin: auto;
     padding-left: $sidebar-width + 1rem;
     padding-right: $sidebar-width;
-    padding-top: $space * 4;
+    padding-top: $header-height + ($space * 2);
     // TODO: Get the spacing right
 
     @include for-desktop-only {
@@ -47,7 +52,6 @@ const toggleSidebar = () => {
     }
 
     @include for-tablet-down {
-      padding-top: $space * 2;
       padding-left: $space * 4;
       padding-right: $space * 4;
     }
