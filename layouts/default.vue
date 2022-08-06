@@ -28,7 +28,7 @@ const toggleSidebar = () => {
 }
 
 const getHeaderNavigationItems = () => {
-  return [{ href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' }, { href: '#test', title: 'A test link' },]
+  return [{ href: '#test', title: 'Link' }, { href: '#test', title: 'Link' }, { href: '#test', title: 'Link' }, { href: '#test', title: 'Link' }, { href: '#test', title: 'Link' },]
 }
 </script>
 
