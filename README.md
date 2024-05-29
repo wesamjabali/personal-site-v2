@@ -1,6 +1,8 @@
 # Personal Site v2
 ## Wesam Jabali
 
+> Deprecated. Actually, this was never used. I just wanted to mess with this tooling. I didn't like it and am currently (May 2024) using Astro on my personal site.
+
 > Made with [Nuxt 3](https://v3.nuxtjs.org).
 > Deployed with [Netlify](https://netlify.com)
 > Deployment found [here](https://62dcd02e95186a1ac8e88ac7--luxury-selkie-00d9f6.netlify.app/)
